@@ -26,12 +26,18 @@ class TodoAppRedux extends React.Component {
         this.state = {
             text: ''
         }
+
+        this.props.dispatch(todoActions.addTodo('See todo example without redux'));
+        this.props.dispatch(todoActions.addTodo('Change example to use redux'));
     }
 
     render() {
         console.debug(this.props);
         let todos = this.props.todos.map((todo, key) => {
-            return <Todo key={key} text={todo.text} status={todo.status} onToggle={() => this.toggleTodo(key)} />
+            return <Todo key={key} 
+                         text={todo.text} 
+                         status={todo.status} 
+                         onToggle={() => this.toggleTodo(key)} />
         })
 
         return (

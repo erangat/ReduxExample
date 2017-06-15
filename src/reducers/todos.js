@@ -1,4 +1,4 @@
-const initialState = [{ key: 0, text: 'See todo example without redux', status: 'active' }, { key: 1, text: 'Change example to use redux', status: 'active' }];
+const initialState = [];
 
 const toggleTodo = (todo, key) => {
     console.debug(key);

@@ -3,12 +3,12 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';  
 import thunk from 'redux-thunk';  
 import * as reducers from '../reducers';
-
+import { composeWithDevTools } from 'redux-devtools-extension';
 import TodoApp from './todoApp';
 import TodoAppRedux from './todoAppRedux';
+
 const reducer = combineReducers(reducers); 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);  
-const store = createStoreWithMiddleware(reducer);
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 export default class App extends React.Component {  
   render() {
